@@ -2,8 +2,11 @@
 stlib
 Pillow
 pandas
+pyarrow
 numpy
 altair
 xgboost
 vegafusion
 scikit-learn
+tabulate
+tflite-runtime

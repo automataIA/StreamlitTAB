@@ -10,7 +10,7 @@
 # name begins with the _ character
 #
 
-message = " # **PROJECT LIST** "
+
 
 import os
 
@@ -20,6 +20,7 @@ st.set_page_config(layout = "wide") # optional
 import pkgutil
 import importlib
 import stlib    # default library(directory) name for apps
+from PIL import Image
 
 # Global arrays for holding the app names, modules and descriptions of the apps
 names = []
@@ -27,7 +28,7 @@ modules = []
 descriptions = [] 
 titles = []
 package = stlib # default name for the library containg the apps
-
+images = []
 # Find the apps and import them
 for importer, modname, ispkg in pkgutil.iter_modules(package.__path__):
     #print ("Found submodule %s (is a package: %s)" % (modname, ispkg))
@@ -41,7 +42,7 @@ for importer, modname, ispkg in pkgutil.iter_modules(package.__path__):
         # If the module has a description attribute use that in the select box
         # otherwise use the module name
         titles.append(m.title)
-
+        images.append(m.image)
 
 # The main app starts here
 # Define a function to display the app
@@ -63,14 +64,26 @@ def format_func(name):
             background-image: linear-gradient(90deg,rgb(0, 0, 255), rgb(0, 255, 255));
             z-index: 999990;
         }
+        .css-1pd56a0 {
+        width: 304px;
+        position: relative;
+        display: flex;
+        flex: 1 1 0%;
+        flex-direction: column;
+        gap: 0rem;
+        }
 	}</style>""", unsafe_allow_html=True)
     return titles[names.index(name)]
 
 # Display the sidebar with a menu of apps
 with st.sidebar:
-    st.markdown(message)
+    image_placeholder = st.empty()
+    message = " # **PROJECT LIST** "
+    #st.markdown(message)
     page = st.selectbox("**Choose the project :**",names, format_func=format_func , placeholder="Select...",) 
-    st.markdown(descriptions[names.index(page)])
+    image = Image.open(images[names.index(page)]) 
+    image_placeholder.image(image ,use_column_width=True)
+    st.markdown("<div style='background-color: rgba(0, 207, 255, 0.05) '>"+descriptions[names.index(page)]+"</div>", unsafe_allow_html=True)
 
 # Run the chosen app
 modules[names.index(page)].run() # Aggiungi app solo per la presentazione

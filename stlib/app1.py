@@ -5,12 +5,15 @@ import altair as alt
 import xgboost as xgb
 import vegafusion as vf
 
-title = """1. Predict payment default risk"""
-description = """**GOAL OF THIS PROJECT** : 
+title = """Predict payment default risk"""
+description = """ ═════════════════════════
+
+<u>**GOAL OF THIS PROJECT**</u> : 
 
 The goal of the project is to **analyze credit card customer data in Taiwan** and to **predict payment default risk** in the 
 following month, using a **classification model** based on **XGBoost**. """
-
+image = 'stlib/files/bank.png'
+st.cache
 def run():
     # Header
     titolo = title
@@ -37,7 +40,7 @@ def run():
         
         # Carica il dataframe dal file CSV
         st.markdown('### **Dataframe :**')
-        df = pd.read_csv("stlib/files/UCI_Credit_Card.csv")
+        df = pd.read_feather("stlib/files/UCI_Credit_Card.feather")
         st.dataframe(df)
         
     with tab2:

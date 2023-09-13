@@ -3,15 +3,16 @@ from PIL import Image
 
 title = """Choose Projects here..."""
 description = """ """
+image = 'stlib/files/home.png'
+st.cache
 def run():
-    # Centered Image
-    for  i in range(10):
-        st.write('')
+    st.markdown("# \n\n")
     
-    image = Image.open('stlib/files/wolf3.png') 
     co = st.columns(5)
+
     with co[2]:
         st.image(image)
+        # Imposta l'immagine come sfondo della pagina
     
     titolo = 'Data Scientist'
     st.markdown("<h1 style='text-align: center; padding: 1px; height: 200px;'>"+str(titolo)+"</h1>", unsafe_allow_html=True)
