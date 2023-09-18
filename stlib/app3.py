@@ -24,7 +24,7 @@ def run():
     @st.cache_data  # Cache per migliorare le prestazioni
     def load_data():
         data = pd.read_csv('stlib/files/Agriculture.csv')
-        data = data.sort_values(by="Painter", ascending=True)
+        data = data.sort_values(by="Category", ascending=True)
         data = data.reset_index(drop=True)
         return data
 
