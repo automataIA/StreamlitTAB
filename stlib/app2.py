@@ -12,7 +12,7 @@ description = """ ════════════════════�
 
 - The goal of the project is to **the author of the painting** from the image of the paint itself. 
 - Having used the transfer learning technique on a pre-trained model for mobile devices (**MobilenetV3-S**) 
-but with high efficiency (**ROC 0.95**) 
+but with high efficiency (**ROC 0.98**) 
 - further optimized through **quantization of the dynamic range**. 
 - Original model in .h5 format was **4.5MB**, the quantized .tfllite one 
 becomes **1.1MB**, loaded with tflite-runtime, useful for **low-performance** systems with **small storage**.
