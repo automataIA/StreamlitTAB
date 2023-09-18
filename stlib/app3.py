@@ -12,7 +12,7 @@ description = """ ════════════════════�
 
 - The goal of this project is to **identify the type of agricultural crop** from images of crops themselves.
 - Applying transfer learning to a pre-trained model designed for mobile devices (**MobilenetV3-S**), 
-ensuring high efficiency with an impressive **ROC score of 0.96**. Optimized through **quantization of the dynamic range**, 
+ensuring high efficiency with an impressive **ROC score of 0.985**. Optimized through **quantization of the dynamic range**, 
 reducing its size from the original **4.5MB** to a compact **1.1MB** in the quantized .tfllite format.
 - This lightweight format, loaded with tflite-runtime, makes it suitable for 
 deployment on **low-performance systems** with **limited storage capacity**.
@@ -23,7 +23,7 @@ def run():
     # Carica il file CSV
     @st.cache_data  # Cache per migliorare le prestazioni
     def load_data():
-        data = pd.read_csv('stlib/files/painter.csv')
+        data = pd.read_csv('stlib/files/Agriculture.csv')
         data = data.sort_values(by="Painter", ascending=True)
         data = data.reset_index(drop=True)
         return data
@@ -49,7 +49,7 @@ def run():
                 st.image(uploaded_file, use_column_width=True)
 
                 # Carica il modello TF Lite
-                interpreter = tflite.Interpreter(model_path='stlib/files/painter.tflite')
+                interpreter = tflite.Interpreter(model_path='stlib/files/Agriculture.tflite')
 
                 # Alloca i tensori del modello
                 interpreter.allocate_tensors()
