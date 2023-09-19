@@ -91,6 +91,6 @@ def run():
                 painter_index = np.argmax(output_data)
 
                 # Stampa il pittore e la probabilità
-                result.markdown(f" ### Painter: {painters[painter_index][0]}, &emsp; &emsp; &emsp; Probability: {output_data[0][painter_index]}")
+                result.markdown(f" ### Vegetable: {painters[painter_index][0]}, &emsp; &emsp; &emsp; Probability: {output_data[0][painter_index]}")
     if __name__ == "__main__":
         run()
