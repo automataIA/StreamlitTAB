@@ -11,7 +11,7 @@ description = """ ════════════════════�
 <u>**GOAL OF THIS PROJECT**</u> : 
 
 - The goal of the project is to **the author of the painting** from the image of the paint itself. 
-- Having used the transfer learning technique on a pre-trained model for mobile devices (**MobilenetV3-S**) 
+- Fine Tuning training of an existing model architecture(**MobilenetV3-S**) 
 but with high efficiency (**ROC 0.98**) 
 - further optimized through **quantization of the dynamic range**. 
 - Original model in .h5 format was **4.5MB**, the quantized .tfllite one 
